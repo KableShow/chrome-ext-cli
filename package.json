@@ -1,0 +1,24 @@
+{
+  "name": "chrome-ext-cli",
+  "version": "0.0.3",
+  "description": "Chrome Extensions 脚手架",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "chrome-ext": "./bin/main.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^3.0.0",
+    "commander": "^4.0.1",
+    "download-git-repo": "^3.0.2",
+    "inquirer": "^7.0.1",
+    "ora": "^4.0.3"
+  },
+  "engines": {
+    "node": ">=8"
+  }
+}

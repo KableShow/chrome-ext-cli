@@ -1,0 +1,40 @@
+{
+  "name": "chrome-extensions-template",
+  "pluginName": "{{pluginName}}",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --config ./webpackConfig/webpack.product.js --serviceENV development",
+    "prdbuild": "webpack --config ./webpackConfig/webpack.product.js --serviceENV production",
+    "watch": "webpack --config ./webpackConfig/webpack.product.js  --serviceENV development -w",
+    "dev": "webpack-dev-server --config ./webpackConfig/webpack.development.js",
+    "devall": "npm run build && node ./bin/createAll.js",
+    "all": "npm run prdbuild && node ./bin/createAll.js --production"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "clean-webpack-plugin": "^1.0.0",
+    "compressing": "^1.5.0",
+    "copy-webpack-plugin": "^4.6.0",
+    "crx": "^4.0.1",
+    "css-loader": "^2.1.1",
+    "happypack": "^5.0.1",
+    "html-webpack-plugin": "^3.2.0",
+    "shelljs": "^0.8.3",
+    "source-replace-plugin": "0.0.1",
+    "style-loader": "^0.23.1",
+    "url-loader": "^1.1.2",
+    "webpack": "^4.41.5",
+    "webpack-bundle-analyzer": "^3.3.2",
+    "webpack-cli": "^3.2.1",
+    "webpack-dev-server": "^3.1.14",
+    "webpack-merge": "^4.2.1",
+    "webpack-parallel-uglify-plugin": "^1.1.0",
+    "yargs": "^13.2.0"
+  },
+  "dependencies": {
+    "moment": "^2.24.0"
+  }
+}
