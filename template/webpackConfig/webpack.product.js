@@ -19,10 +19,6 @@ const createHappyPlugin = (id, loaders) => new HappyPack({
 })
 */
 
-function resolve (dir) {
-  return path.join(__dirname, '..', dir)
-}
-
 // 是否是watch模式
 const isWatchMode = !!process.argv.slice(2).find(e => e === '-w')
 
@@ -33,9 +29,16 @@ module.exports = merge(baseWebpackConfig, {
   mode: 'production',
   cache: true,
   entry: {
+/**ext-template:js--start
     'js/popupindex': './popup/index.js', // popup入口
     'js/contentindex': './content/index.js', // content入口
     'js/background': './background/index.js' // backgroundjs
+ext-template:js--end**/
+/**ext-template:ts--start
+    'js/popupindex': './popup/index.ts', // popup入口
+    'js/contentindex': './content/index.ts', // content入口
+    'js/background': './background/index.ts' // backgroundjs
+ext-template:ts--end**/
   },
   output: {
     path: path.resolve(__dirname, '../dist'),
@@ -81,7 +84,7 @@ module.exports = merge(baseWebpackConfig, {
     minimizer: isWatchMode ? [] : [
       new ParallelUglifyPlugin({ // 多进程压缩
         cacheDir: './node_modules/.cache/',
-        uglifyES: { // 这个项目不需要用babel转成es5
+        uglifyES: { // 项目不需要用babel转成es5
           output: {
             comments: false,
             beautify: false

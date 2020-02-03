@@ -9,7 +9,12 @@ module.exports = {
   mode: 'production',
   cache: true,
   entry: {
+/**ext-template:ts--start
+    'js/documentStart': './content/documentStart/index.ts'
+ext-template:ts--end**/
+/**ext-template:js--start
     'js/documentStart': './content/documentStart/index.js'
+ext-template:js--end**/
   },
   output: {
     path: path.resolve(__dirname, '../static'),
@@ -24,6 +29,22 @@ module.exports = {
   },
   module: {
     rules: [
+/**ext-template:tslint--start
+      {
+        test: /\.tsx?$/,     // typescript的加载器
+        loader: 'tslint-loader',
+        enforce: 'pre',
+        exclude: /node_modules/,
+        include: [resolve('content'), resolve('popup')]
+      },
+ext-template:tslint--end**/
+/**ext-template:ts--start
+      {
+        test: /\.tsx?$/,
+        loader: 'ts-loader',
+        exclude: /node_modules/
+      },
+ext-template:ts--end**/
 /**ext-template:eslint--start
       {
         test: /\.js$/,

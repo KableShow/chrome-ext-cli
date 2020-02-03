@@ -1,6 +1,6 @@
 {
   "name": "chrome-ext-cli",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Chrome Extensions 脚手架",
   "main": "index.js",
   "scripts": {

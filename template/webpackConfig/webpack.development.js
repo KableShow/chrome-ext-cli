@@ -7,9 +7,12 @@ const webpack = require('webpack')
 module.exports = merge(baseWebpackConfig, {
   mode: 'development',
   entry: {
-    'js/popupindex': './popup/index.js', // popup入口
-    'js/contentindex': './content/index.js', // content入口
-    'js/background': './background/index.js' // backgroundjs
+/**ext-template:js--start
+    'js/popupindex': './popup/index.js' // popup入口
+ext-template:js--end**/
+/**ext-template:ts--start
+    'js/popupindex': './popup/index.ts' // popup入口
+ext-template:ts--end**/
   },
   devServer: {
     port: 8887,

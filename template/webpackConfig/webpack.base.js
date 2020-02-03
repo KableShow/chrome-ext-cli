@@ -40,7 +40,7 @@ module.exports = {
   },
   module: {
     rules: [
-/**ext-template:ts--start
+/**ext-template:tslint--start
       {
         test: /\.tsx?$/,     // typescript的加载器
         loader: 'tslint-loader',
@@ -48,6 +48,8 @@ module.exports = {
         exclude: /node_modules/,
         include: [resolve('content'), resolve('popup')]
       },
+ext-template:tslint--end**/
+/**ext-template:ts--start
       {
         test: /\.tsx?$/,
         loader: 'ts-loader',
