@@ -1,6 +1,6 @@
 const compressing = require('compressing');
 const path = require('path')
-const manifest = require('../manifest.json')
+const manifest = require('../dist/manifest.json')
 const packageJson = require('../package.json')
 let distFileName = ''
 

@@ -1,5 +1,5 @@
 var shell = require('shelljs')
-const manifest = require('../manifest.json')
+const manifest = require('../dist/manifest.json')
 const packageJson = require('../package.json')
 const path = require('path')
 const fs = require('fs')
@@ -32,7 +32,7 @@ async function addDateDesc () {
   let desc = manifest.description
   let currentTimeStr = moment(currentTime).format('YYYY-MM-DD HH:mm')
   desc = desc.replace(/\[buildTime\]/gi, currentTimeStr)
-  let manifestPath = path.join(__dirname, '../manifest.json')
+  let manifestPath = path.join(__dirname, '../dist/manifest.json')
   let code = await readAsync(manifestPath, { encoding: 'utf8' })
   code = code.replace(/"description":\s*"[^"]+"/gi, '"description": "' + desc + '"')
   let coverFilePath = path.join(__dirname, '../dist/manifest.json')

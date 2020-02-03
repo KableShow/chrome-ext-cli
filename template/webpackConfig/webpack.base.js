@@ -1,5 +1,6 @@
 const path = require('path')
 const packageJson = require('../package.json')
+const ChromePlugin = require('./chromePlugin')
 
 const fs = require('fs')
 
@@ -11,17 +12,6 @@ if (envIndex > 0 && commandParams[envIndex + 1] === 'production') {
 } else {
   pluginName = `${packageJson.pluginName}-测试版`
 }
-
-fs.readFile(path.join(__dirname, '../manifest.json'), 'utf8', function (err, data) {
-  if (err) throw err;
-  let manifest = JSON.parse(data)
-  manifest.name = pluginName
-  let newContent = JSON.stringify(manifest, null, 4);
-  fs.writeFile(path.join(__dirname, '../manifest.json'), newContent, 'utf8', (err) => {
-      if (err) throw err;
-      console.log('manifest中插件名称修改成功!');
-  });
-});
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
@@ -113,5 +103,8 @@ ext-template:sass--end**/
         use: ['style-loader', 'css-loader']
       }
     ]
-  }
+  },
+  plugins: [
+    new ChromePlugin({ pluginName })
+  ]
 }
