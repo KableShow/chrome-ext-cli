@@ -23,6 +23,7 @@ module.exports = {
     filename: '[name].bundle.js'
   },
   resolve: {
+    extensions: ['.js', '.ts', '.json'],
     alias: {
       'content': resolve('content'),
       'popup': resolve('popup')

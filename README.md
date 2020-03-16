@@ -27,8 +27,6 @@
 
 创建项目会询问是否需要一个执行在 **document_start** 时机的 **content script** 。建议选择 **yes** 。具体作用可查看生成项目里面的 **README.md** 。
 
-![document_start](http://i2.tiimg.com/708175/cf9a9928c033b349.jpg)
-
 ## key
 
 创建的项目下有个 **key** 文件目录，这里放着打包CRX文件需要的 **pem** 文件；建议自己重新生成；
